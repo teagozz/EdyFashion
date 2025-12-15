@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
-    <head>
-        <link rel="icon" href="logo.jpg" type="image/jpeg">
-        <link rel="shortcut icon" href="logo.jpg" type="image/jpeg">
-    </head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edy Fashion</title>
     <meta name="description" content="Edy Fashion - Inovando a cada estação! Moda Masculina, Feminina e Infantil em Coronel Murta - MG.">
     <meta property="og:title" content="Edy Fashion">
+    <link rel="icon" href="logo.jpg" type="image/jpeg">
+    <link rel="shortcut icon" href="logo.jpg" type="image/jpeg">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
@@ -65,7 +63,7 @@
 
 <div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 p-4 shadow-2xl z-[150] hidden flex-col md:flex-row items-center justify-between gap-4">
     <div class="text-sm text-gray-600 max-w-3xl">
-        <p><strong>Sua privacidade importa.</strong> Utilizamos armazenamento local para melhorar sua experiência. Ao continuar, você concorda com nossos <button onclick="openLegalModal('termos')" class="text-brand underline">Termos de Uso</button>.</p>
+        <p><strong>A sua privacidade importa.</strong> Utilizamos armazenamento local para melhorar a sua experiência. Ao continuar, você concorda com nossos <button onclick="openLegalModal('termos')" class="text-brand underline">Termos de Uso</button>.</p>
     </div>
     <button onclick="acceptCookies()" class="bg-brand text-white px-6 py-2 rounded-lg font-bold hover:bg-brand-dark transition-colors whitespace-nowrap">Aceitar</button>
 </div>
@@ -146,10 +144,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-10">
                 <div>
-                    <h2 class="text-3xl font-serif font-bold text-gray-900">Novidades</h2>
+                    <h2 class="text-3xl font-serif font-bold text-gray-900">Destaques</h2>
                     <div class="w-12 h-1 bg-brand mt-2"></div>
                 </div>
-                <span class="text-xs font-bold text-orange-400 uppercase tracking-wider hidden sm:block">| SELECIONADOS DA SEMANA</span>
+                <span class="text-xs font-bold text-orange-400 uppercase tracking-wider hidden sm:block">| DESTAQUES DA SEMANA</span>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6" id="grid-destaques"></div>
         </div>
@@ -212,7 +210,6 @@
             </div>
         </div>
     </section>
-
     <section id="contato" class="bg-brand py-20 text-white relative overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(#ffffff33_1px,transparent_1px)] [background-size:16px_16px]"></div>
         <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
@@ -229,9 +226,7 @@
             </div>
         </div>
     </section>
-
 </main>
-
 <footer class="bg-gray-100 border-t border-gray-200 pt-16 pb-8 text-sm text-gray-600">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
@@ -469,10 +464,6 @@
     let selectedSize = null;
     let tempUser = {};
 
-
-    // -------------------------------------------
-    //                 PRODUTOS
-    // -------------------------------------------
     function initProducts() {
         products = [];
 
@@ -565,20 +556,20 @@
 
     function createCardHTML(p) {
         return `
-          <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden cursor-pointer group shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full" onclick="openProductModal(${p.id})">
-              <div class="h-80 overflow-hidden relative bg-gray-100 flex items-center justify-center">
-                  <img src="${p.img}" onerror="this.src='https://placehold.co/600x800/orange/white?text=${p.nome}'" class="product-img w-full h-full object-cover transition-transform duration-700">
-              </div>
-              <div class="p-4 flex flex-col flex-grow">
-                  <h4 class="font-bold text-gray-900 truncate text-lg">${p.nome}</h4>
-                  <p class="text-xs text-gray-500 mb-2">${p.desc}</p>
-                  <div class="mt-auto flex justify-between items-center">
-                      <span class="text-brand font-bold text-lg">R$ ${p.preco}</span>
-                      <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">${p.tags[1] || 'Oferta'}</span>
-                  </div>
-              </div>
-          </div>
-      `;
+<div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden cursor-pointer group shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full" onclick="openProductModal(${p.id})">
+<div class="h-80 overflow-hidden relative bg-gray-100 flex items-center justify-center">
+<img src="${p.img}" onerror="this.src='https://placehold.co/600x800/orange/white?text=${p.nome}'" class="product-img w-full h-full object-cover transition-transform duration-700">
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h4 class="font-bold text-gray-900 truncate text-lg">${p.nome}</h4>
+<p class="text-xs text-gray-500 mb-2">${p.desc}</p>
+<div class="mt-auto flex justify-between items-center">
+<span class="text-brand font-bold text-lg">R$ ${p.preco}</span>
+<span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">${p.tags[1] || 'Oferta'}</span>
+</div>
+</div>
+</div>
+`;
     }
 
     function filtrar(cat) {
@@ -735,25 +726,38 @@
 
         let sizes = ['P','M','G','GG'];
 
-        // Lógica simplificada de tamanhos baseada nas tags manuais
         const tagsStr = selectedProduct.tags.join(' ').toLowerCase();
-        const isFootwear = tagsStr.includes('calçados') || tagsStr.includes('tênis') || tagsStr.includes('sandália');
-        const isChild = selectedProduct.cat === 'infantil';
+        const isFootwear = tagsStr.includes('calçados') || tagsStr.includes('calçado') || tagsStr.includes('tênis') || tagsStr.includes('sandália') || tagsStr.includes('sapatilha');
         const isMale = selectedProduct.cat === 'masculino';
         const isFemale = selectedProduct.cat === 'feminino';
 
-        if (isFootwear && !isChild) {
-            if (isMale) sizes = ['37','38','39','40','41','42','43','44'];
-            else if (isFemale) sizes = ['34','35','36','37','38','39'];
+        if (isFootwear) {
+            if (isMale) {
+                sizes = ['37','38','39','40','41','42','43','44'];
+            } else if (isFemale) {
+                sizes = ['34','35','36','37','38','39','40','41'];
+            }
         }
 
         sizes.forEach(s => {
             const btn = document.createElement('button');
             btn.innerText = s;
             btn.className = "w-10 h-10 border border-gray-300 rounded hover:border-brand hover:text-brand transition focus:bg-brand focus:text-white";
-            btn.onclick = (e) => { selectedSize = s; Array.from(sc.children).forEach(c=>c.classList.remove('bg-brand','text-white')); e.target.classList.add('bg-brand','text-white'); }
+            btn.onclick = (e) => {
+                selectedSize = s;
+                Array.from(sc.children).forEach(c => {
+                    if(c.tagName === 'BUTTON') c.classList.remove('bg-brand','text-white');
+                });
+                e.target.classList.add('bg-brand','text-white');
+            }
             sc.appendChild(btn);
         });
+
+        const stockMsg = document.createElement('p');
+        stockMsg.className = "text-xs text-gray-500 italic mt-2 w-full";
+        stockMsg.innerText = "*Sujeito a disponibilidade de estoque";
+        sc.appendChild(stockMsg);
+
         openModal('modal-produto');
     }
 
@@ -796,22 +800,22 @@
         cart.forEach((i, idx) => {
             total += i.rawPrice * i.qty;
             c.innerHTML += `
-              <div class="flex gap-4 border-b pb-4">
-                  <img src="${i.img}" class="w-16 h-16 object-cover rounded" onerror="this.src='https://placehold.co/100'">
-                  <div class="flex-1">
-                      <h5 class="font-bold text-sm">${i.nome}</h5>
-                      <p class="text-xs text-gray-500">Tam: ${i.size} | ${i.preco}</p>
-                      <div class="flex items-center mt-2 gap-3">
-                         <button onclick="updateQty(${idx}, -1)" class="w-6 h-6 bg-gray-200 rounded text-xs font-bold">-</button>
-                         <span class="text-sm font-bold">${i.qty}</span>
-                         <button onclick="updateQty(${idx}, 1)" class="w-6 h-6 bg-gray-200 rounded text-xs font-bold">+</button>
-                      </div>
-                  </div>
-                  <div class="flex flex-col items-end justify-between">
-                     <span class="text-brand font-bold text-sm">R$ ${(i.rawPrice * i.qty).toFixed(2).replace('.',',')}</span>
-                     <button onclick="cart.splice(${idx},1);updateCartCount();openCart()" class="text-red-400 text-xs">Remover</button>
-                  </div>
-              </div>`;
+<div class="flex gap-4 border-b pb-4">
+<img src="${i.img}" class="w-16 h-16 object-cover rounded" onerror="this.src='https://placehold.co/100'">
+<div class="flex-1">
+<h5 class="font-bold text-sm">${i.nome}</h5>
+<p class="text-xs text-gray-500">Tam: ${i.size} | ${i.preco}</p>
+<div class="flex items-center mt-2 gap-3">
+<button onclick="updateQty(${idx}, -1)" class="w-6 h-6 bg-gray-200 rounded text-xs font-bold">-</button>
+<span class="text-sm font-bold">${i.qty}</span>
+<button onclick="updateQty(${idx}, 1)" class="w-6 h-6 bg-gray-200 rounded text-xs font-bold">+</button>
+</div>
+</div>
+<div class="flex flex-col items-end justify-between">
+<span class="text-brand font-bold text-sm">R$ ${(i.rawPrice * i.qty).toFixed(2).replace('.',',')}</span>
+<button onclick="cart.splice(${idx},1);updateCartCount();openCart()" class="text-red-400 text-xs">Remover</button>
+</div>
+</div>`;
         });
         document.getElementById('cart-total').innerText = total.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
         const m = document.getElementById('modal-carrinho');
@@ -878,15 +882,15 @@
 
         orders.slice().reverse().forEach(o => {
             list.innerHTML += `
-             <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
-                 <div class="flex justify-between items-center mb-2">
-                     <span class="font-bold text-sm">Pedido #${o.id.toString().substr(-6)}</span>
-                     <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">${o.date}</span>
-                 </div>
-                 <div class="text-xs text-gray-500 mb-2">${o.items.length} itens</div>
-                 <div class="font-bold text-brand text-right">${o.total}</div>
-             </div>
-          `;
+<div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+<div class="flex justify-between items-center mb-2">
+<span class="font-bold text-sm">Pedido #${o.id.toString().substr(-6)}</span>
+<span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">${o.date}</span>
+</div>
+<div class="text-xs text-gray-500 mb-2">${o.items.length} itens</div>
+<div class="font-bold text-brand text-right">${o.total}</div>
+</div>
+`;
         });
     }
 
@@ -919,9 +923,9 @@
 
     function openLegal(t) {
         const c = {
-            trocas: "<p><strong>Política de Trocas e Devoluções:</strong><br><br>Em conformidade com o Código de Defesa do Consumidor, garantimos o seu direito à troca em caso de defeito de fabricação. O cliente deve comunicar a loja e realizar a devolução do item o mais rápido possível para que possamos iniciar o processo de análise e substituição junto ao fabricante. O produto deve, obrigatoriamente, conter todas as etiquetas intactas e sua embalagem original.</p>",
+            trocas: "<p><strong>Política de Trocas e Devoluções:</strong><br><br>Em conformidade com o Código de Defesa do Consumidor, garantimos o seu direito à troca em caso de defeito de fabricação. O cliente deve comunicar a loja e realizar a devolução do item o mais rápido possível para que possamos iniciar o processo de análise e substituição junto ao fabricante. O produto deve, obrigatoriamente, conter todas as etiquetas intactas e a sua embalagem original.</p>",
             prazos: "<p><strong>Prazos e Entregas:</strong><br><br>A postagem dos produtos é realizada no mesmo dia da confirmação do pedido, caso os Correios ainda estejam em horário de funcionamento. Caso contrário, o envio será efetuado no primeiro horário do dia útil subsequente. Após a postagem, enviaremos o código de rastreamento oficial dos Correios via WhatsApp para que você possa acompanhar a entrega. O prazo final de recebimento é de responsabilidade exclusiva dos Correios.</p>",
-            privacidade: "<p><strong>Política de Privacidade (LGPD):</strong><br><br>A Edy Fashion respeita sua privacidade. Coletamos apenas os dados estritamente necessários (Nome, CPF, Endereço e Contato) para processar seu pedido e viabilizar a entrega. Garantimos que suas informações são armazenadas em ambiente seguro e jamais serão comercializadas ou cedidas a terceiros sem seu consentimento explícito. Você possui o direito de solicitar a visualização, correção ou exclusão definitiva dos seus dados de nossa base a qualquer momento, bastando entrar em contato com nosso suporte.</p>",
+            privacidade: "<p><strong>Política de Privacidade (LGPD):</strong><br><br>A Edy Fashion respeita a sua privacidade. Coletamos apenas os dados estritamente necessários (Nome, CPF, Endereço e Contato) para processar o seu pedido e viabilizar a entrega. Garantimos que as suas informações são armazenadas em ambiente seguro e jamais serão comercializadas ou cedidas a terceiros sem o seu consentimento explícito. Você possui o direito de solicitar a visualização, correção ou exclusão definitiva dos seus dados da nossa base a qualquer momento, bastando entrar em contato com o nosso suporte.</p>",
             termos: "<p><strong>Termos de Uso:</strong><br><br>Ao utilizar este site, você concorda que ele funciona como uma vitrine virtual para reserva de produtos. A disponibilidade dos itens pode variar e a compra só é considerada efetivada após a confirmação do pagamento diretamente com o atendente via WhatsApp. Reservamo-nos o direito de alterar preços e estoques sem aviso prévio. As imagens dos produtos são ilustrativas.</p>"
         };
 
